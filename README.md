@@ -17,6 +17,14 @@ $ npm run start
 $ npm run generate
 ```
 
+
+```bash
+# Contain these implementations
+$ State management using(vuex)
+$ Axios Call
+$ Dynamic(Basic) page setup
+```
+
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
 ## Special Directories
