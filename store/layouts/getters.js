@@ -1,6 +1,4 @@
+// grab infromation form here to display in our app
 export default {
-  isCollapsed(state) {
-    // console.log('hereee')
-    return state.collapsed;
-  }
+  getCurrentValue: state => state.currentValue
 }

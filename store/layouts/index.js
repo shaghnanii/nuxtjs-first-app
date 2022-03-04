@@ -9,4 +9,5 @@ export default {
   getters,
   actions,
 }
+
 export const strict = false

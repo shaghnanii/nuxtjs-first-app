@@ -1,3 +1,3 @@
 export default () => ({
-  collapsed: false,
+  currentValue: 'this is current value ssss'
 })
