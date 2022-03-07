@@ -250,7 +250,9 @@
         <a-input-password allow-clear placeholder="with input password and allowClear" />
       </a-form-item>
     </a-form>
-
+    <br>
+    <hr>
+    <br>
   </a-layout-content>
 </template>
 
@@ -363,7 +365,16 @@ export default {
         salary: null,
         phone_number: null,
         password: null,
-      }
+      },
+
+      labelCol: {
+        xs: { span: 24 },
+        sm: { span: 5 },
+      },
+      wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 12 },
+      },
     };
   },
 }
