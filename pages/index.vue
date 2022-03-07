@@ -20,7 +20,7 @@ export default {
   components: {Dashboard, Sidebar, Header},
 
   methods: {
-    ...mapGetters('layouts', ["getCurrentValue"])
+    ...mapGetters('layouts', ["getCurrentValue", "getExtraValue"]),
   },
   computed: {
     joke() {
