@@ -54,6 +54,7 @@ const responseErrorHandler = (error) => {
   }
   if (error && error.response && error.response.status > 404 && error.response.status !== 422) {
     console.log('error 404 to 422')
+    console.log(error.response )
     // this.$toast.error(error.response.data.message);
   }
 

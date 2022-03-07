@@ -16,5 +16,11 @@ export default {
     console.log('state data', payload)
     const data = await api.store('/login', payload);
     console.log(data)
+  },
+
+  async register({ commit }, payload) {
+    console.log('state data', payload)
+    const data = await api.store('/register', payload);
+    console.log(data)
   }
 }
