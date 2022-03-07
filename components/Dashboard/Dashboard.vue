@@ -10,6 +10,37 @@
     <hr>
     <Button @click="testing">Testing</Button>
     <h5>{{ extra }}</h5>
+
+    <hr>
+    <section class="report">
+      <h1 class="report__heading">Report an Incident</h1>
+      <form class="report__form">
+        <div class="input__container">
+          <label for="email" class="input__label">Email</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            v-model="credential.email"
+            class="input__field"
+            required
+          />
+        </div>
+        <div class="input__container">
+          <label for="password" class="input__label">Password</label>
+          <input
+            type="text"
+            name="password"
+            id="password"
+            v-model="credential.password"
+            required
+            class="input__field"
+          />
+        </div>
+        <input type="submit" value="LOGIN" class="input__button" @click.prevent="login_user" />
+        <p class="loading__indicator" v-if="loading">Please wait....</p>
+      </form>
+    </section>
   </a-layout-content>
 </template>
 
@@ -32,17 +63,57 @@ export default {
   methods: {
     // clean method
     ...mapActions({ addJoke: "layouts/setCurrentValue" }),
+    ...mapActions("layouts", ["login"]),
     ...mapMutations('layouts', ['setExtraValue']),
     ...mapGetters('layouts', ['getExtraValue']),
 
     testing() {
       this.setExtraValue('Clicked on Testing button')
-    }
+    },
 
-    // ...mapActions('layouts', ["setCurrentValue"]),
-    // addJoke(){
-    //   this.setCurrentValue()
-    // }
+    login_user() {
+      console.log('clikced... ')
+      const data = this.credential;
+      const formData = new FormData();
+      formData.append("email", data.email);
+      formData.append("password", data.password);
+      this.loading = true;
+
+      console.log(formData)
+      try {
+        console.log('try')
+        this.login(this.credential);
+        // await this.$store.dispatch("reportIncident", formData);
+        // this.$notify({
+        //   group: "success",
+        //   title: "Success",
+        //   text: "Incident reported successfully!"
+        // });
+        // this.loading = false;
+        // this.$router.push("/my-reports");
+      } catch (error) {
+        console.log(error)
+        this.loading = false;
+        // this.$notify({
+        //   group: "error",
+        //   title: "Error!",
+        //   text: error.response
+        //     ? error.response.data.error
+        //     : "Sorry an error occured, check your internet"
+        // });
+      }
+    }
+  },
+
+  data() {
+    return {
+      loading: false,
+      credential: {
+        type: "red-flag",
+        email: "",
+        password: "",
+      }
+    };
   },
 }
 </script>
